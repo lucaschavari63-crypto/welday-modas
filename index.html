@@ -17,11 +17,15 @@
 
     <nav class="main-nav" aria-label="Navegação principal">
       <a href="#servicos">Serviços</a>
+      <a href="#pecas">Peças</a>
       <a href="#avaliacoes">Avaliações</a>
       <a href="#contato">Contato</a>
     </nav>
 
-    <a class="header-action" href="tel:+553537315805">Ligar</a>
+    <div class="header-actions">
+      <button class="owner-button" type="button" data-owner-open>Dono</button>
+      <a class="header-action" href="tel:+553537315805">Ligar</a>
+    </div>
   </header>
 
   <main>
@@ -94,6 +98,16 @@
       </div>
     </section>
 
+    <section id="pecas" class="section products" aria-labelledby="pecas-title">
+      <div class="section-heading">
+        <p class="eyebrow">Peças e preços</p>
+        <h2 id="pecas-title">Confira as peças cadastradas pela loja.</h2>
+      </div>
+
+      <div class="product-grid" data-product-list aria-live="polite"></div>
+      <p class="empty-products" data-empty-products>Nenhuma peça cadastrada ainda.</p>
+    </section>
+
     <section id="avaliacoes" class="section reviews">
       <div class="section-heading narrow">
         <p class="eyebrow">Quem compra recomenda</p>
@@ -153,6 +167,45 @@
     <span>Welday Modas</span>
     <span>Loja de roupa e confecção própria em Andradas-MG</span>
   </footer>
+
+  <div class="owner-modal" data-owner-modal hidden>
+    <div class="owner-dialog" role="dialog" aria-modal="true" aria-labelledby="owner-title">
+      <div class="owner-dialog-header">
+        <div>
+          <p class="eyebrow">Área restrita</p>
+          <h2 id="owner-title">Adicionar peça</h2>
+        </div>
+        <button class="icon-button" type="button" data-owner-close aria-label="Fechar">X</button>
+      </div>
+
+      <form class="owner-login" data-owner-login>
+        <label for="owner-password">Senha do dono</label>
+        <div class="owner-login-row">
+          <input id="owner-password" name="password" type="password" autocomplete="current-password" required />
+          <button class="button primary" type="submit">Entrar</button>
+        </div>
+        <p class="owner-error" data-owner-error role="alert"></p>
+      </form>
+
+      <form class="product-form" data-product-form hidden>
+        <label for="product-name">Nome da peça</label>
+        <input id="product-name" name="name" type="text" placeholder="Ex: Camiseta personalizada" required />
+
+        <label for="product-price">Preço</label>
+        <input id="product-price" name="price" type="text" placeholder="Ex: R$ 49,90" required />
+
+        <label for="product-image">Imagem do produto</label>
+        <input id="product-image" name="image" type="file" accept="image/*" />
+        <p class="form-hint">Use uma foto leve, de preferência com até 2 MB.</p>
+
+        <label for="product-description">Descrição</label>
+        <textarea id="product-description" name="description" rows="3" placeholder="Detalhes, tamanhos ou observações"></textarea>
+
+        <p class="product-error" data-product-error role="alert"></p>
+        <button class="button primary wide" type="submit">Salvar peça</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
